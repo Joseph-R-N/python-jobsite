@@ -5,10 +5,10 @@
 replicaCount: 2
 
 image:
-  repository: nelrajan/jobsite:tagVersion
+  repository: nelrajan/jobsite
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "tagVersion"
 
 service:
   type: LoadBalancer
