@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: job-website-deploy
+  labels:
+    app: job-deploy
+spec:
+  replicas: {{ .Values.replicaCount}}
+  selector:
+    matchLabels:
+      app: web
+      type: front
+  template:
+    metadata:
+      name: jobsite
+      labels:
+        app: web
+        type: front
+    spec:
+      containers:
+        - name: jobsite
+          image: {{ .Values.image.repository}}
+          ports:
+            - containerPort: 8000
+
